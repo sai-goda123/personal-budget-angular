@@ -1,6 +1,6 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { Chart } from 'chart.js/auto';
+import { HttpClient } from '@angular/common/http';
+import { Chart, ChartData } from 'chart.js/auto';
 import * as d3 from 'd3';
 import { DataService } from '../data.service';
 @Component({
@@ -53,6 +53,7 @@ export class HomepageComponent implements OnInit {
   }
 
   createChart() {
+    // var ctx = document.getElementById("myChart").getContext("2d");
     var ctx = document.getElementById('myChart') as HTMLCanvasElement;
     var existingChart = Chart.getChart(ctx);
 
@@ -65,6 +66,8 @@ export class HomepageComponent implements OnInit {
         data: this.dataSource
     });
   }
+
+  // Code for D3JS Chart
 
   createSecondChart(data: any[]) {
     const budgetValues = data.map((d: any) => d.budget);
